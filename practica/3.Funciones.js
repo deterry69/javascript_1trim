@@ -103,8 +103,11 @@ console.log("\nEjercicio 8: Encadenar funciones sobre un array");
 // un array solo con los nombres ('name') de los productos cuyo precio sea
 // mayor a 50. Encadena 'filter' y 'map'.
 
-// Tu código aquí
-
+function getExpensiveProductNames(products){
+    return products
+    .filter(product => product.price > 50)
+    .map(product => product.name)
+}
 const products = [
     { name: "Teclado", price: 25 },
     { name: "Monitor", price: 150 },
@@ -120,8 +123,10 @@ console.log("\nEjercicio 9: Función como objeto");
 // Después, asigna esa función (sin ejecutarla) a una nueva constante llamada
 // 'farewell', y llama a 'farewell' en vez de a 'sayGoodbye'.
 
-// Tu código aquí
-
+function sayGoodbye(){
+    console.log("Adiós")
+}
+const farewell = sayGoodbye;
 farewell(); // Debería mostrar: 'Adiós'
 
 // 10. Librería propia
@@ -132,8 +137,15 @@ console.log("\nEjercicio 10: Librería propia");
 // - 'average(numbers)': devuelve la media de un array de números
 // (No hace falta usar 'export'/'import', basta con el objeto en este archivo).
 
-// Tu código aquí
-
+const mathUtils = {
+    isEven: function(number){
+        return number % 2 === 0 
+    },
+    average: function(numbers){
+        const sum = numbers.reduce((acumulator, actual) => acumulator + actual, 0)
+        return sum / numbers.length
+    }
+}
 console.log(mathUtils.isEven(4));           // Debería mostrar: true
 console.log(mathUtils.isEven(7));           // Debería mostrar: false
 console.log(mathUtils.average([2, 4, 6]));  // Debería mostrar: 4
